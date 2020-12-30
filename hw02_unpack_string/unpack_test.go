@@ -1,4 +1,4 @@
-package hw02_unpack_string //nolint:golint,stylecheck
+package main //nolint:golint,stylecheck
 
 import (
 	"testing"
@@ -45,6 +45,10 @@ func TestUnpack(t *testing.T) {
 			input:    "aaa0b",
 			expected: "aab",
 		},
+		{
+			input: "d\n5abc",
+			expected: "d\n\n\n\n\nabc",
+		},
 	} {
 		result, err := Unpack(tst.input)
 		require.Equal(t, tst.err, err)
@@ -53,7 +57,7 @@ func TestUnpack(t *testing.T) {
 }
 
 func TestUnpackWithEscape(t *testing.T) {
-	t.Skip() // NeedRemove if task with asterisk completed
+	//t.Skip() // NeedRemove if task with asterisk completed
 
 	for _, tst := range [...]test{
 		{
