@@ -50,7 +50,7 @@ func TestUnpack(t *testing.T) {
 			expected: "d\n\n\n\n\nabc",
 		},
 		{
-			input: "🎄7yyu",
+			input:    "🎄7yyu",
 			expected: "🎄🎄🎄🎄🎄🎄🎄yyu",
 		},
 	} {
