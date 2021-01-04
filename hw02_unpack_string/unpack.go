@@ -55,10 +55,6 @@ func Unpack(s string) (string, error) {
 			}
 		}
 
-		//if unicode.IsDigit(curRune) && esc {
-		//	res.WriteRune(curRune)
-		//}
-
 		if string(curRune) == "\\" {
 			esc = true
 		} else {
