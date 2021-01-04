@@ -23,7 +23,6 @@ func Top10(inputStr string) []string {
 	for i := range wordsSequence {
 		wordFrequencies[wordsSequence[i]]++
 	}
-	
 	wordCount := PairList{}
 	for key, value := range wordFrequencies {
 		wordCount = append(wordCount, Pair{key, value})
