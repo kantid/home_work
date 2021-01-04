@@ -1,4 +1,4 @@
-package hw03_frequency_analysis //nolint:golint
+package frequency //nolint:golint
 
 import (
 	"testing"
