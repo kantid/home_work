@@ -1,4 +1,4 @@
-package Unpack
+package unpack
 
 import (
 	"testing"

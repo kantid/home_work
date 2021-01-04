@@ -1,4 +1,4 @@
-package Unpack
+package unpack
 
 import (
 	"errors"
@@ -61,14 +61,10 @@ func Unpack(s string) (string, error) {
 			esc = false
 		}
 
-		if esc {
-		}
-
 		// set lastRune to current rune.
 		lastRune = curRune
 	}
 
 	// return result, nil because we don't have error here.
 	return res.String(), nil
-
 }
