@@ -1,4 +1,4 @@
-package hw02UnpackString
+package Unpack
 
 import (
 	"errors"
@@ -21,7 +21,7 @@ func Unpack(s string) (string, error) {
 
 	// go throw string by every rune, i is current symbol position.
 	for i, curRune := range s {
-		//if first symbol is dijit, error occurred.
+		// if first symbol is dijit, error occurred.
 		if unicode.IsDigit(curRune) && i == 0 {
 			return "", ErrInvalidString
 		}
@@ -44,14 +44,14 @@ func Unpack(s string) (string, error) {
 		if (unicode.IsDigit(curRune) && !esc) && (unicode.IsLetter(lastRune) || unicode.IsSpace(lastRune) || unicode.IsSymbol(lastRune)) {
 			// convert rune to int.
 			runeInt := int(curRune - '0')
-				// if current rune is '0', remove lastRune from result.
-				if runeInt == 0 {
-					s = strings.TrimSuffix(res.String(), string(lastRune))
-					res.Reset()
-					res.WriteString(s)
-					//if not 0, repeat last rune by current rune value.
-				} else {
-					res.WriteString(strings.Repeat(string(lastRune), runeInt-1))
+			// if current rune is '0', remove lastRune from result.
+			if runeInt == 0 {
+				s = strings.TrimSuffix(res.String(), string(lastRune))
+				res.Reset()
+				res.WriteString(s)
+				// if not 0, repeat last rune by current rune value.
+			} else {
+				res.WriteString(strings.Repeat(string(lastRune), runeInt-1))
 			}
 		}
 
@@ -61,7 +61,8 @@ func Unpack(s string) (string, error) {
 			esc = false
 		}
 
-		if esc {}
+		if esc {
+		}
 
 		// set lastRune to current rune.
 		lastRune = curRune
