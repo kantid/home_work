@@ -1,6 +1,7 @@
-package hw03_frequency_analysis //nolint:golint
+package frequency //nolint:golint
 
 import (
+	"github.com/stretchr/testify/assert"
 	"testing"
 
 	"github.com/stretchr/testify/require"
@@ -56,5 +57,14 @@ func TestTop10(t *testing.T) {
 			expected := []string{"он", "и", "а", "что", "ты", "не", "если", "-", "то", "Кристофер"}
 			require.ElementsMatch(t, expected, Top10(text))
 		}
+	})
+	t.Run("lang test", func(t *testing.T) {
+		expected := []string{"テスト入力", "test", "prueba", "bandomoji", "ola!", "kiểmd", "kiểm", "įvestis", "suʻega", "kokokodah"}
+		assert.Subset(t, expected, Top10(`テスト入力 test prueba bandomoji ola! kiểm kiểmd įvestis suʻega テスト入力 test prueba bandomoji ola! kiểm kiểmd įvestis suʻega kokokodah`))
+	})
+	t.Run("less than 10 words", func(t *testing.T) {
+		txt := "here 5 words 5 words"
+		expected := []string{"here", "5", "words"}
+		require.ElementsMatch(t, expected, Top10(txt))
 	})
 }

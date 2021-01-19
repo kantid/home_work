@@ -1,4 +1,4 @@
-package hw04_lru_cache //nolint:golint,stylecheck
+package cache
 
 type List interface {
 	// Place your code here
